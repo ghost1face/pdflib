@@ -1,0 +1,22 @@
+{
+  "name": "pdflib",
+  "version": "1.0.0",
+  "description": "Pdf manipulation and creation",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "PDF"
+  ],
+  "author": "Daniel Destouche",
+  "license": "MIT",
+  "dependencies": {
+    "canvas": "^2.0.0-alpha.2",
+    "pdfjs-dist": "^1.8.593",
+    "svg2img": "^0.2.8"
+  },
+  "devDependencies": {
+    "mocha": "^3.5.0"
+  }
+}
