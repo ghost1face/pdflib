@@ -4,7 +4,8 @@
   "description": "Pdf manipulation and creation",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "testd": "mocha --inspect-brk"
   },
   "keywords": [
     "PDF"
@@ -12,9 +13,9 @@
   "author": "Daniel Destouche",
   "license": "MIT",
   "dependencies": {
-    "canvas": "^2.0.0-alpha.2",
-    "pdfjs-dist": "^1.8.593",
-    "svg2img": "^0.2.8"
+    "canvas": "^2.5.0",
+    "pdfjs-dist": "^2.0.943",
+    "svg2img": "^0.6.0"
   },
   "devDependencies": {
     "mocha": "^3.5.0"

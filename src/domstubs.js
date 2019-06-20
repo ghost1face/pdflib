@@ -1,11 +1,13 @@
+var CANVAS = require('canvas');
+
 /* Any copyright is dedicated to the Public Domain.
  * http://creativecommons.org/publicdomain/zero/1.0/ */
 
-function xmlEncode(s){
+function xmlEncode(s) {
   var i = 0, ch;
   s = String(s);
   while (i < s.length && (ch = s[i]) !== '&' && ch !== '<' &&
-         ch !== '\"' && ch !== '\n' && ch !== '\r' && ch !== '\t') {
+    ch !== '\"' && ch !== '\n' && ch !== '\r' && ch !== '\t') {
     i++;
   }
   if (i >= s.length) {
@@ -55,6 +57,9 @@ function DOMElement(name) {
       },
     };
   }
+  else if (name === 'canvas') {
+    return CANVAS.createCanvas(0, 0);
+  }
 }
 
 DOMElement.prototype = {
@@ -96,7 +101,7 @@ DOMElement.prototype = {
     buf.push('<' + this.nodeName);
     if (this.nodeName === 'svg:svg') {
       buf.push(' xmlns:xlink="http://www.w3.org/1999/xlink"' +
-               ' xmlns:svg="http://www.w3.org/2000/svg"');
+        ' xmlns:svg="http://www.w3.org/2000/svg"');
     }
     for (var i in this.attributes) {
       buf.push(' ' + i + '="' + xmlEncode(this.attributes[i]) + '"');
@@ -107,7 +112,7 @@ DOMElement.prototype = {
     if (this.nodeName === 'svg:tspan' || this.nodeName === 'svg:style') {
       buf.push(xmlEncode(this.textContent));
     } else {
-      this.childNodes.forEach(function(childNode) {
+      this.childNodes.forEach(function (childNode) {
         buf.push(childNode.toString());
       });
     }
@@ -125,7 +130,7 @@ DOMElement.prototype = {
 }
 
 const document = {
-  childNodes : [],
+  childNodes: [],
 
   get currentScript() {
     return { src: '' };
@@ -152,15 +157,15 @@ const document = {
   }
 };
 
-function Image () {
+function Image() {
   this._src = null;
   this.onload = null;
 }
 Image.prototype = {
-  get src () {
+  get src() {
     return this._src;
   },
-  set src (value) {
+  set src(value) {
     this._src = value;
     if (this.onload) {
       this.onload();
@@ -173,14 +178,15 @@ exports.Image = Image;
 
 var exported_symbols = Object.keys(exports);
 
-exports.setStubs = function(namespace) {
-  exported_symbols.forEach(function(key) {
+exports.setStubs = function (namespace) {
+  debugger;
+  exported_symbols.forEach(function (key) {
     console.assert(!(key in namespace), 'property should not be set: ' + key);
     namespace[key] = exports[key];
   });
 };
-exports.unsetStubs = function(namespace) {
-  exported_symbols.forEach(function(key) {
+exports.unsetStubs = function (namespace) {
+  exported_symbols.forEach(function (key) {
     console.assert(key in namespace, 'property should be set: ' + key);
     delete namespace[key];
   });

@@ -1,11 +1,11 @@
 var pdfjsLib = require('pdfjs-dist');
 
-function Core() {}
+function Core() { }
 Core.prototype = {
   /**
    *  @param {string|TypedArray|Object} Url, Uint8Array or object with init options (must provide a data or url parameter)
    */
-  open: function(file) {
+  open: function (file) {
     var parameters = {};
     if (typeof file === 'string') {
       parameters.url = file;
