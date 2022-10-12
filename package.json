@@ -15,7 +15,7 @@
   "dependencies": {
     "canvas": "^2.5.0",
     "pdfjs-dist": "^2.0.943",
-    "svg2img": "^0.6.0"
+    "svg2img": "^1.0.0-beta.2"
   },
   "devDependencies": {
     "mocha": "^3.5.0"
