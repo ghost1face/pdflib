@@ -14,7 +14,7 @@
   "license": "MIT",
   "dependencies": {
     "canvas": "^2.5.0",
-    "pdfjs-dist": "^2.0.943",
+    "pdfjs-dist": "^2.16.105",
     "svg2img": "^0.6.0"
   },
   "devDependencies": {
